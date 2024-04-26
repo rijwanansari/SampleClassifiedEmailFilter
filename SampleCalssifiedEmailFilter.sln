@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleClassifiedEmailFilter", "SampleCalssifiedEmailFilter\SampleClassifiedEmailFilter.csproj", "{C9EBBC47-12A2-4E00-BA5C-47B5A27CFF45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextCalssifierFilter", "TextCalssifierFilter\TextCalssifierFilter.csproj", "{F43D661C-22F9-4553-9AC4-C56476E3CA48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9EBBC47-12A2-4E00-BA5C-47B5A27CFF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9EBBC47-12A2-4E00-BA5C-47B5A27CFF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9EBBC47-12A2-4E00-BA5C-47B5A27CFF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9EBBC47-12A2-4E00-BA5C-47B5A27CFF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43D661C-22F9-4553-9AC4-C56476E3CA48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43D661C-22F9-4553-9AC4-C56476E3CA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43D661C-22F9-4553-9AC4-C56476E3CA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43D661C-22F9-4553-9AC4-C56476E3CA48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6C24191-823C-43BA-948F-268783DCC05F}
+	EndGlobalSection
+EndGlobal

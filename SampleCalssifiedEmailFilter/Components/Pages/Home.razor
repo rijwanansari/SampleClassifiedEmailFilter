@@ -1,0 +1,66 @@
+﻿@page "/home"
+@using SampleCalssifiedEmailFilter.Services
+@inject IEmailFilter EmailFilterService
+<PageTitle>Classified Email Filter</PageTitle>
+
+<h3>Classified Email Filter!</h3>
+@if (warninngMessage.Length > 0)
+{
+    <div class="alert alert-warning">
+        <strong>Warning!</strong> @warninngMessage.
+    </div>
+}
+<div class="form-group">
+    <label for="classifiedText">Classified Text:</label>
+    <input type="text" class="form-control" id="classifiedText" @bind="ClassifiedText" />
+</div>
+<div class="form-group">
+    <label for="emailText">Email Text:</label>
+    <textarea class="form-control" id="emailText" @bind="EmailText"></textarea>
+</div>
+
+<button class="btn btn-primary" @onclick="FilterEmail">Filter</button>
+
+@if (IsClassified)
+{
+    <div class="alert alert-warning" role="alert">
+        This email contains classified information.
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(CensoredText))
+{
+    <div class="form-group">
+        <label for="censoredText">Censored Text:</label>
+        <textarea class="form-control" id="censoredText" readonly>@CensoredText</textarea>
+    </div>
+}
+
+@code {
+    private string warninngMessage = "";
+    private string ClassifiedText { get; set; }
+    private string EmailText { get; set; }
+    private bool IsClassified { get; set; }
+    private string CensoredText { get; set; }
+
+    private async Task FilterEmail()
+    {
+        try
+        {
+            var classifiedWords = !string.IsNullOrWhiteSpace(ClassifiedText)
+            ? ClassifiedText.Split(new[] { ' ', ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+            : Enumerable.Empty<string>();
+
+            var (isClassified, censoredText) = await EmailFilterService.FilterEmailBodyAsync(classifiedWords.ToList(), EmailText);
+            IsClassified = isClassified;
+            CensoredText = censoredText;
+        }
+        catch (Exception ex)
+        {
+           warninngMessage = ex.Message;
+        }
+
+    }
+}
+
+
